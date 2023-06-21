@@ -1,5 +1,5 @@
-#include <stdio.h> // Asenate de Melo Protti
-#include <stdlib.h> 
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 int main() {
@@ -35,16 +35,14 @@ int main() {
     printf("========================================\n\n");
 
     while (vidas > 0) {
-    	numeroSecreto = rand() % 31;
-    	
+        numeroSecreto = rand() % 31;
+
         printf("Tentativas restantes: %d\n", tentativas);
         printf("Pontuacao: %d\n", pontuacao);
         printf("Vidas restantes: %d\n\n", vidas);
 
         printf("Digite o seu palpite: ");
         scanf("%d", &palpite);
-
-        
 
         if (palpite == numeroSecreto) {
             printf("\n---Parabens! Voce acertou o numero!---\n\n");
@@ -101,10 +99,16 @@ int main() {
                 printf("Voce perdeu uma vida!\n");
 
                 if (pontuacao >= 2000 && vidaExtraUsada == 0) {
-                    vidas++;
-                    printf("Voce ganhou uma vida extra por ter alcancado 2000 pontos!\n");
-                    pontuacao -= 2000;
-                    vidaExtraUsada = 1;
+                    printf("Deseja usar 2000 pontos para ganhar uma vida extra? (1 - Sim, 0 - Nao): ");
+                    int opcao;
+                    scanf("%d", &opcao);
+
+                    if (opcao == 1) {
+                        vidas++;
+                        pontuacao -= 2000;
+                        vidaExtraUsada = 1;
+                        printf("Voce ganhou uma vida extra!\n");
+                    }
                 }
 
                 if (vidas == 0) {
@@ -138,10 +142,16 @@ int main() {
                 printf("Voce perdeu uma vida!\n");
 
                 if (pontuacao >= 2000 && vidaExtraUsada == 0) {
-                    vidas++;
-                    printf("Voce ganhou uma vida extra por ter alcancado 2000 pontos!\n");
-                    pontuacao -= 2000;
-                    vidaExtraUsada = 1;
+                    printf("Deseja usar 2000 pontos para ganhar uma vida extra? (1 - Sim, 0 - Nao): ");
+                    int opcao;
+                    scanf("%d", &opcao);
+
+                    if (opcao == 1) {
+                        vidas++;
+                        pontuacao -= 2000;
+                        vidaExtraUsada = 1;
+                        printf("Voce ganhou uma vida extra!\n");
+                    }
                 }
 
                 if (vidas == 0) {
@@ -156,8 +166,8 @@ int main() {
                 if (opcao == 1) {
                     tentativas = 10;
                 } else {
-                	printf("\nO numero correto era %d.\n", numeroSecreto);
-    				printf("Pontuacao final: %d\n", pontuacao);
+                    printf("\nO numero correto era %d.\n", numeroSecreto);
+                    printf("Pontuacao final: %d\n", pontuacao);
                     break;
                 }
             }
